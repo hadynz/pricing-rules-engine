@@ -145,3 +145,28 @@ describe('Scenario 2', () => {
     expect(price).toEqual(3950);
   });
 });
+
+describe('Scenario 3 - negative cases', () => {
+  let strategy: PriceStrategy;
+
+  const input: PriceStrategyProps = {
+    defaultPrice: 100,
+    rules: [],
+  };
+
+  beforeEach(() => {
+    strategy = new PriceStrategy(input);
+  });
+
+  it('Default price is returned when new price rules exist', async () => {
+    const price = strategy.calculate({
+      day: new Date('November 21, 2020'),
+    });
+    expect(price).toEqual(100);
+  });
+
+  it('All user input parameters are optional defaulting to Default price', async () => {
+    const price = strategy.calculate({});
+    expect(price).toEqual(100);
+  });
+});

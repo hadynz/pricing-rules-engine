@@ -1,6 +1,6 @@
 {
   "name": "pricing-rules-engine",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Rules engine for common business pricing calculations",
   "engines": {
     "node": ">= 12.13 <13"

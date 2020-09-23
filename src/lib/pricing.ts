@@ -12,7 +12,7 @@ export type PriceStrategyProps = {
 
 type UserInput = {
   eventType?: string;
-  day: Date;
+  day?: Date;
 };
 
 type NormalisedUserInput = {
@@ -24,8 +24,8 @@ type NormalisedUserInput = {
 const parseUserInput = (input: UserInput): NormalisedUserInput => {
   return {
     eventType: input.eventType,
-    day: input.day.getDay(),
-    month: input.day.getMonth() + 1,
+    day: input.day?.getDay(),
+    month: input.day?.getMonth() + 1,
   };
 };
 
