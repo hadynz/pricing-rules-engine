@@ -33,14 +33,14 @@ describe('Scenario 1', () => {
   });
 
   it('Booking a kids party costs $300', async () => {
-    const price = await strategy.calculate({
+    const price = strategy.calculate({
       day: new Date(),
     });
     expect(price).toEqual(300);
   });
 
   it('Booking a wedding on Friday costs $1500', async () => {
-    const price = await strategy.calculate({
+    const price = strategy.calculate({
       eventType: 'Wedding',
       day: new Date('December 25, 2020'), // Friday
     });
@@ -48,7 +48,7 @@ describe('Scenario 1', () => {
   });
 
   it('Booking a wedding on any other day (than Fri/Sat) costs $1200', async () => {
-    const price = await strategy.calculate({
+    const price = strategy.calculate({
       eventType: 'Wedding',
       day: new Date('December 24, 2020'), // Thursday
     });
@@ -125,21 +125,21 @@ describe('Scenario 2', () => {
   });
 
   it('Booking on a Saturday in November for $6950', async () => {
-    const price = await strategy.calculate({
+    const price = strategy.calculate({
       day: new Date('November 21, 2020'),
     });
     expect(price).toEqual(6950);
   });
 
   it('Booking on a non-Fri/Sat in November for $4950', async () => {
-    const price = await strategy.calculate({
+    const price = strategy.calculate({
       day: new Date('November 18, 2020'),
     });
     expect(price).toEqual(4950);
   });
 
   it('Booking in June for $3950', async () => {
-    const price = await strategy.calculate({
+    const price = strategy.calculate({
       day: new Date('June 1, 2020'),
     });
     expect(price).toEqual(3950);

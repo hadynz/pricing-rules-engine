@@ -38,7 +38,7 @@ export class PriceStrategy {
     this.rules = [...rules];
   }
 
-  async calculate(userInput: UserInput): Promise<number> {
+  calculate(userInput: UserInput): number {
     const fact = parseUserInput(userInput);
 
     let calculatedPrice = this.defaultPrice;
