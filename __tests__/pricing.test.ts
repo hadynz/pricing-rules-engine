@@ -170,3 +170,31 @@ describe('Scenario 3 - negative cases', () => {
     expect(price).toEqual(100);
   });
 });
+
+describe('Scenario 4', () => {
+  let strategy: PriceStrategy;
+
+  const input: PriceStrategyProps = {
+    defaultPrice: 100,
+    rules: [
+      {
+        name: 'Wedding - $5000',
+        price: 5000,
+        month: [],
+        day: [],
+        eventType: ['wedding'],
+      },
+    ],
+  };
+
+  beforeEach(() => {
+    strategy = new PriceStrategy(input);
+  });
+
+  it('Default price is returned when new price rules exist', async () => {
+    const price = strategy.calculate({
+      eventType: 'wedding',
+    });
+    expect(price).toEqual(5000);
+  });
+});

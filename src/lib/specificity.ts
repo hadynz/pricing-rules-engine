@@ -11,15 +11,15 @@ type ComparatorResult = -1 | 0 | 1;
 export const calculateSpecificity = (rule: PriceRule): number => {
   let specificity = 0;
 
-  if (rule.eventType !== undefined) {
+  if (rule.eventType?.length > 0) {
     specificity += PriceRuleSpecificity.EventType;
   }
 
-  if (rule.month !== undefined) {
+  if (rule.month?.length > 0) {
     specificity += PriceRuleSpecificity.Month;
   }
 
-  if (rule.day !== undefined) {
+  if (rule.day?.length > 0) {
     specificity += PriceRuleSpecificity.Day;
   }
 

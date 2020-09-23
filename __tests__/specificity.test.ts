@@ -9,7 +9,7 @@ const createPriceRule = (
   return {
     name: 'Rule under test',
     eventType: includeEventType ? ['Wedding'] : undefined,
-    month: includeMonth ? [11] : undefined,
+    month: includeMonth ? [11] : [],
     day: includeDay ? [1] : undefined,
     price: 10,
   };
