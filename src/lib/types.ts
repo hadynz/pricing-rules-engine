@@ -24,9 +24,10 @@ export enum Month {
 }
 
 export type PriceRule = {
+  id?: any;
+  name?: string;
   eventType?: string[];
   day?: Day[];
   month?: Month[];
   price: number;
-  name: string;
 };

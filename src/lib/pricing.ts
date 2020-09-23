@@ -21,6 +21,11 @@ type NormalisedUserInput = {
   month?: number;
 };
 
+type Calculation = {
+  price: number;
+  matchingRule?: PriceRule;
+};
+
 const parseUserInput = (input: UserInput): NormalisedUserInput => {
   return {
     eventType: input.eventType,
@@ -38,10 +43,12 @@ export class PriceStrategy {
     this.rules = [...rules];
   }
 
-  calculate(userInput: UserInput): number {
+  calculate(userInput: UserInput): Calculation {
     const fact = parseUserInput(userInput);
 
-    let calculatedPrice = this.defaultPrice;
+    let result: Calculation = {
+      price: this.defaultPrice,
+    };
 
     this.rules.sort(sortBySpecificity).reverse();
 
@@ -64,11 +71,14 @@ export class PriceStrategy {
       }
 
       if (specificityMatch === ruleSpecificity) {
-        calculatedPrice = rule.price;
+        result = {
+          price: rule.price,
+          matchingRule: rule,
+        };
         break;
       }
     }
 
-    return calculatedPrice;
+    return result;
   }
 }

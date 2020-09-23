@@ -33,26 +33,26 @@ describe('Scenario 1', () => {
   });
 
   it('Booking a kids party costs $300', async () => {
-    const price = strategy.calculate({
+    const result = strategy.calculate({
       day: new Date(),
     });
-    expect(price).toEqual(300);
+    expect(result.price).toEqual(300);
   });
 
   it('Booking a wedding on Friday costs $1500', async () => {
-    const price = strategy.calculate({
+    const result = strategy.calculate({
       eventType: 'Wedding',
       day: new Date('December 25, 2020'), // Friday
     });
-    expect(price).toEqual(1500);
+    expect(result.price).toEqual(1500);
   });
 
   it('Booking a wedding on any other day (than Fri/Sat) costs $1200', async () => {
-    const price = strategy.calculate({
+    const result = strategy.calculate({
       eventType: 'Wedding',
       day: new Date('December 24, 2020'), // Thursday
     });
-    expect(price).toEqual(1200);
+    expect(result.price).toEqual(1200);
   });
 });
 
@@ -125,24 +125,24 @@ describe('Scenario 2', () => {
   });
 
   it('Booking on a Saturday in November for $6950', async () => {
-    const price = strategy.calculate({
+    const result = strategy.calculate({
       day: new Date('November 21, 2020'),
     });
-    expect(price).toEqual(6950);
+    expect(result.price).toEqual(6950);
   });
 
   it('Booking on a non-Fri/Sat in November for $4950', async () => {
-    const price = strategy.calculate({
+    const result = strategy.calculate({
       day: new Date('November 18, 2020'),
     });
-    expect(price).toEqual(4950);
+    expect(result.price).toEqual(4950);
   });
 
   it('Booking in June for $3950', async () => {
-    const price = strategy.calculate({
+    const result = strategy.calculate({
       day: new Date('June 1, 2020'),
     });
-    expect(price).toEqual(3950);
+    expect(result.price).toEqual(3950);
   });
 });
 
@@ -159,15 +159,15 @@ describe('Scenario 3 - negative cases', () => {
   });
 
   it('Default price is returned when new price rules exist', async () => {
-    const price = strategy.calculate({
+    const result = strategy.calculate({
       day: new Date('November 21, 2020'),
     });
-    expect(price).toEqual(100);
+    expect(result.price).toEqual(100);
   });
 
   it('All user input parameters are optional defaulting to Default price', async () => {
-    const price = strategy.calculate({});
-    expect(price).toEqual(100);
+    const result = strategy.calculate({});
+    expect(result.price).toEqual(100);
   });
 });
 
@@ -192,9 +192,9 @@ describe('Scenario 4', () => {
   });
 
   it('Default price is returned when new price rules exist', async () => {
-    const price = strategy.calculate({
+    const result = strategy.calculate({
       eventType: 'wedding',
     });
-    expect(price).toEqual(5000);
+    expect(result.price).toEqual(5000);
   });
 });
