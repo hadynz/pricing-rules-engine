@@ -3,7 +3,7 @@ import {
   hasDuplicateDimensions,
   hasAtLeastOneDimension,
   validateRules,
-} from '../src/validation';
+} from '../src/lib/validation';
 
 describe('rulesAreOverlapping - overlapping scenarios', () => {
   it('same days only are overlapping', () => {

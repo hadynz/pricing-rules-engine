@@ -1,5 +1,5 @@
-import { calculateSpecificity, sortBySpecificity } from '../src/specificity';
-import { PriceRule } from '../src/types';
+import { calculateSpecificity, sortBySpecificity } from '../src/lib/specificity';
+import { PriceRule } from '../src/lib/types';
 
 const createPriceRule = (
   includeEventType: boolean,
