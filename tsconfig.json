@@ -3,6 +3,7 @@
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
+    "declaration": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "importHelpers": true,
@@ -12,14 +13,11 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": false,
     "noImplicitThis": false,
     "strictNullChecks": false
   },
-  "include": [
-    "src/**/*",
-    "__tests__/**/*"
-  ]
+  "include": ["src/**/*", "__tests__/**/*"]
 }
